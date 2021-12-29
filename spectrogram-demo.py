@@ -18,8 +18,8 @@ if __name__ == '__main__':
     clip_mid = int(CLIP_SIZE / 2)
     audio_clip = audio_mono[audio_mid - clip_mid: audio_mid + clip_mid]
 
-    audio_enc = tfio.audio.encode_mp3(tf.reshape(audio_clip, shape=[len(audio_clip), 1]), rate=audio.rate.numpy())
-    tf.io.write_file("processed.mp3", audio_enc)
+    # audio_enc = tfio.util.encode_mp3(tf.reshape(audio_clip, shape=[len(audio_clip), 1]), rate=util.rate.numpy())
+    # tf.io.write_file("processed.mp3", audio_enc)
 
     # 频谱图
     waveform = tf.cast(audio_clip, tf.float32)
