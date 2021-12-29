@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 CLIP_SIZE = 480000
 if __name__ == '__main__':
     # Read
-    audio = tfio.audio.AudioIOTensor("./demo-data/train/sakurasakura/sakurasakura-origion.mp3", dtype=tf.dtypes.float32)
+    audio = tfio.audio.AudioIOTensor("./sakurasakura-demo/dataset/train/sakurasakura/sakurasakura-origion.mp3", dtype=tf.dtypes.float32)
 
     # 转换为单声道
     audio_mono = tf.convert_to_tensor(np.sum(audio[:].numpy(), axis=1) / 2.0, dtype=tf.dtypes.float32)
