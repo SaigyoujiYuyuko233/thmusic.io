@@ -91,4 +91,4 @@ if __name__ == '__main__':
     plt.legend(loc='lower right')
     plt.show()
 
-    model.save('models/model_' + str(history.history['accuracy'][len(history.history['accuracy']) - 1]) + "_" + datetime.datetime.now().strftime("%Y_%m_%d-%H_%M_%S"))
+    model.save('models/model_' + str(history.history['accuracy'][len(history.history['accuracy']) - 1]) + "_" + datetime.datetime.now().strftime("%Y_%m_%d-%H_%M_%S") + ".h5")
