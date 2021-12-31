@@ -9,7 +9,7 @@ from random import randrange
 import datetime
 
 if __name__ == '__main__':
-    CLIP_SIZE = 60000
+    CLIP_SIZE = 120000
 
     train_spect = []
     train_label = []
@@ -77,10 +77,11 @@ if __name__ == '__main__':
 
     # 0: sakurasakura
     # 1: 蓬莱传说
-    EPOCHS = 6
-    steps_per_epoch = 40
+    EPOCHS = 200
+    steps_per_epoch = 200
     batch_size = int(train_spect.shape[0] / steps_per_epoch)
-    history = model.fit(train_spect, train_label, validation_data=(test_spect, test_label), batch_size=batch_size, steps_per_epoch=steps_per_epoch, epochs=EPOCHS, callbacks=[tensorboard_callback])
+    history = model.fit(train_spect, train_label, validation_data=(test_spect, test_label), batch_size=batch_size,
+                        steps_per_epoch=steps_per_epoch, epochs=EPOCHS, callbacks=[tensorboard_callback])
     # history = model.fit(train_spect, train_label, epochs=12)
 
     plt.plot(history.history['accuracy'], label='accuracy')
@@ -91,4 +92,6 @@ if __name__ == '__main__':
     plt.legend(loc='lower right')
     plt.show()
 
-    model.save('models/model_' + str(history.history['accuracy'][len(history.history['accuracy']) - 1]) + "_" + datetime.datetime.now().strftime("%Y_%m_%d-%H_%M_%S") + ".h5")
+    model.save('models/model_' + str(
+        history.history['accuracy'][len(history.history['accuracy']) - 1]) + "_" + datetime.datetime.now().strftime(
+        "%Y_%m_%d-%H_%M_%S") + ".h5")
