@@ -9,7 +9,7 @@ from random import randrange
 import datetime
 
 if __name__ == '__main__':
-    CLIP_SIZE = 120000
+    CLIP_SIZE = 40000
 
     train_spect = []
     train_label = []
@@ -68,7 +68,7 @@ if __name__ == '__main__':
 
     model.summary()
 
-    model.compile(optimizer='adam',
+    model.compile(optimizer=keras.optimizers.Adam(learning_rate=0.001),
                   loss=keras.losses.binary_crossentropy,
                   metrics=['accuracy'])
 

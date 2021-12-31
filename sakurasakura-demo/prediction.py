@@ -3,8 +3,8 @@ import tensorflow as tf
 import glob
 import numpy as np
 
-MODEL = "./models/model_1.0_2021_12_31-19_00_08.h5"
-CLIP_SIZE = 80000
+MODEL = "./models/model_1.0_2021_12_31-20_03_33.h5"
+CLIP_SIZE = 40000
 
 if __name__ == '__main__':
     model = tf.keras.models.load_model(MODEL)
