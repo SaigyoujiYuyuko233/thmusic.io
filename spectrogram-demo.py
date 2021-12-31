@@ -27,7 +27,6 @@ if __name__ == '__main__':
     spectrogram = tfio.audio.spectrogram(audio_clip, nfft=2048, window=800, stride=1024)
     spectrogram = tfio.audio.melscale(spectrogram, rate=rate, mels=240, fmin=0, fmax=rate / 2)
     spectrogram = tfio.audio.dbscale(spectrogram, top_db=20)
-    print(spectrogram.shape)
     spectrogram = spectrogram.numpy()
 
     # mask
@@ -35,6 +34,5 @@ if __name__ == '__main__':
         spectrogram[:, i] = np.zeros(len(spectrogram))
     spectrogram = tf.convert_to_tensor(spectrogram)
 
-    print(spectrogram)
     plt.imshow(tf.math.log(spectrogram).numpy())
     plt.show()
